@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles Flux RSS</title>
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/670c9b9132.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+        .font-family-karla {
+            font-family: 'Karla', sans-serif;
+        }
+
+        .bg-sidebar {
+            background: #3d68ff;
+        }
+
+        .active-nav-link {
+            background: #1947ee;
+        }
+
+        .nav-item:hover {
+            background: #1947ee;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-family-karla flex h-screen">
+
+    <!-- Sidebar -->
+    <aside class="relative bg-sidebar h-screen w-64 overflow-y-auto shadow-xl">
+        <div class="p-6">
+            <h1 class="text-white text-3xl font-semibold uppercase">Categories</h1>
+        </div>
+        <nav class="text-white text-base font-semibold pt-3">
+            <!-- Dynamically render categories -->
+            {% for category, icon in theme_emojis.items() %}
+            <a href="/?category={{ category }}" class="flex items-center py-4 pl-6 nav-item hover:opacity-100 opacity-75">
+                {{ icon | safe }} <span class="ml-2">{{ category }}</span>
+            </a>
+            {% endfor %}
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="w-full flex flex-col overflow-hidden">
+        <!-- Header -->
+        <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex"></header>
+
+        <!-- Main -->
+        <main class="w-full flex-grow p-6 overflow-y-auto">
+            <h1 class="text-3xl text-black pb-6">Articles by Categories</h1>
+
+            {% for theme, articles in articles_by_theme.items() %}
+            <!-- Section for each category -->
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-blue-600 mb-4">{{ theme | capitalize }}</h2>
+
+                {% if articles|length == 0 %}
+                <!-- Message if no articles -->
+                <p class="text-gray-600">Aucun article disponible pour cette catégorie.</p>
+                {% else %}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {% for article in articles %}
+                    <div class="bg-white shadow-md rounded-lg p-6 flex hover:shadow-lg transition duration-300">
+                        <!-- Image on the left -->
+                        {% if article['Image'] %}
+                        <img src="{{ article['Image'] }}" alt="Article Image" class="w-32 h-32 object-cover rounded-md mr-4">
+                        {% else %}
+                        <div class="w-32 h-32 bg-gray-300 rounded-md mr-4"></div>
+                        {% endif %}
+
+                        <!-- Text content on the right -->
+                        <div class="flex flex-col justify-between w-full">
+                            <div>
+                                <h3 class="text-lg font-bold mb-2">{{ article['Titre'] }}</h3>
+                                <p class="text-sm text-gray-600 mb-4">{{ article['Résumé'] or "Résumé non disponible" }}</p>
+                                <a href="{{ article['Lien'] }}" class="text-blue-600 hover:underline">Voir l'article</a>
+                            </div>
+                            <!-- Date at the bottom -->
+                            <p class="text-sm text-gray-500 mt-4"><i class="far fa-clock"></i> {{ article['Date'] }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </main>
+    </div>
+</body>
+
+</html>

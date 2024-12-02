@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<head>
+    <!-- Définition de la structure de base d'une page HTML -->
+    <meta charset="UTF-8"> <!-- Définit l'encodage des caractères (UTF-8 recommandé pour gérer les langues internationales) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Rend le site responsive (adapté aux mobiles) -->
+    <title>Dashboard</title> <!-- Titre affiché dans l'onglet du navigateur -->
+
+    <!-- Inclusion des fichiers CSS -->
+    <link rel="stylesheet" href="../static/styles.css"> <!-- Fichier CSS local pour les styles personnalisés -->
+
+    <!-- Utilisation de Tailwind CSS pour les styles rapides et modernes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Utilisation de Font Awesome pour les icônes -->
+    <script src="https://kit.fontawesome.com/670c9b9132.js" crossorigin="anonymous"></script>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Ajoute un écouteur d'événements pour fermer le menu déroulant si l'utilisateur clique en dehors
+        document.addEventListener("click", (e) => {
+            const dropdown = document.getElementById("dropdownMenu");
+            const button = document.querySelector("button[onclick='toggleMenu()']");
+            if (!dropdown.contains(e.target) && e.target !== button) {
+                dropdown.classList.add("hidden"); // Cache le menu en ajoutant la classe "hidden"
+            }
+        });
+
+        // Fonction pour basculer la visibilité du menu déroulant
+        const toggleMenu = () => {
+            const dropdown = document.getElementById("dropdownMenu");
+            dropdown.classList.toggle("hidden"); // Ajoute ou supprime la classe "hidden"
+        };
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <!-- Applique des couleurs et styles de base pour le mode clair et sombre -->
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-500 dark:to-blue-700 shadow-lg">
+        <!-- Barre de navigation avec un dégradé bleu et ombre -->
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Conteneur pour centrer et espacer les éléments -->
+            <h1 class="text-2xl font-extrabold text-white">
+                <i class="fas fa-globe"></i> Dashboard
+                <!-- Titre avec une icône de globe -->
+            </h1>
+
+            <!-- Menu déroulant -->
+            <div class="relative inline-block">
+                <!-- Bouton qui déclenche le menu -->
+                <button
+                    class="px-12 py-2 bg-blue-700 text-white rounded-lg shadow hover:bg-blue-800 transition"
+                    onclick="toggleMenu()">
+                    Articles
+                </button>
+
+                <!-- Menu caché par défaut (classe `hidden`) -->
+                <div
+                    id="dropdownMenu"
+                    class="hidden absolute right-0 mt-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow-lg rounded-lg w-48 z-50">
+                    <!-- Génère dynamiquement les catégories à partir de Flask -->
+                    {% for category in categories %}
+                    <a href="/?category={{ category }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        {{ category | capitalize }}
+                        <!-- Affiche chaque catégorie en la capitalisant -->
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-8 px-6">
+        <!-- Section principale contenant le contenu -->
+        <h2 class="text-4xl font-extrabold text-center text-gray-800 dark:text-gray-200 mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
+            <i class="fas fa-layer-group"></i> Articles Classés par Thème
+            <!-- Titre principal -->
+        </h2>
+
+        <!-- Liste des catégories et articles -->
+        <div class="space-y-12">
+            <!-- Boucle pour afficher les thèmes et leurs articles -->
+            {% for theme, articles in articles_by_theme.items() %}
+                <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                    <!-- Conteneur pour chaque thème -->
+                    <div class="mb-4 flex items-center">
+                        <span class="text-2xl mr-2">{{ theme_emojis.get(theme, "❓") }}</span>
+                        <!-- Icône du thème -->
+                        <h3 class="text-2xl font-extrabold text-blue-600 dark:text-blue-400">{{ theme | capitalize }}</h3>
+                        <!-- Nom du thème -->
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Découvrez les dernières nouvelles sur {{ theme }}.
+                    </p>
+
+                    <!-- Vérifie si le thème contient des articles -->
+                    {% if articles|length == 0 %}
+                        <p class="text-gray-600 dark:text-gray-400">Aucun article disponible pour ce thème.</p>
+                        <!-- Message par défaut si aucun article -->
+                    {% else %}
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Affiche les articles dans une grille -->
+                            {% for article in articles %}
+                                <div class="flex items-start bg-gray-100 dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300">
+                                    <!-- Carte de l'article -->
+                                    {% if article['Image'] %}
+                                        <img src="{{ article['Image'] }}" alt="Image de l'article" class="w-32 h-32 object-cover rounded-lg">
+                                        <!-- Image de l'article si disponible -->
+                                    {% else %}
+                                        <div class="w-32 h-32 bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
+                                        <!-- Image par défaut si aucune image -->
+                                    {% endif %}
+                                    <div class="ml-4">
+                                        <a href="{{ article['Lien'] }}" target="_blank" class="text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">
+                                            {{ article['Titre'] }}
+                                            <!-- Titre de l'article avec lien -->
+                                        </a>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 flex items-center">
+                                            <i class="fa-regular fa-clock mr-2"></i> {{ article['Date'] }}
+                                            <!-- Date de l'article -->
+                                        </p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">{{ article['Résumé'] }}</p>
+                                        <!-- Résumé de l'article -->
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-gray-900 text-white dark:text-gray-400 mt-12 py-6">
+        <div class="container mx-auto text-center">
+            <!-- Pied de page -->
+            <p>&copy; 2024 News Dashboard. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

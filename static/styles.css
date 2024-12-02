@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    color: #555;
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #fff;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+nav .relative {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centre le bouton */
+}
+
+#dropdownMenu {
+    position: absolute;
+    top: 100%; /* Place le menu juste sous le bouton */
+    right: 0; /* Aligne le menu sur le bord droit du conteneur */
+    min-width: 10rem; /* Largeur minimale */
+    max-height: 300px; /* Limite la hauteur pour éviter les dépassements */
+    overflow-y: auto; /* Ajoute un défilement vertical si nécessaire */
+    z-index: 50; /* Assure que le menu apparaît au-dessus d'autres éléments */
+}
