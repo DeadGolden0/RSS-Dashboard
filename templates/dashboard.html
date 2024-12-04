@@ -13,24 +13,6 @@
 
     <!-- Utilisation de Font Awesome pour les icônes -->
     <script src="https://kit.fontawesome.com/670c9b9132.js" crossorigin="anonymous"></script>
-
-    <!-- Scripts JavaScript -->
-    <script>
-        // Ajoute un écouteur d'événements pour fermer le menu déroulant si l'utilisateur clique en dehors
-        document.addEventListener("click", (e) => {
-            const dropdown = document.getElementById("dropdownMenu");
-            const button = document.querySelector("button[onclick='toggleMenu()']");
-            if (!dropdown.contains(e.target) && e.target !== button) {
-                dropdown.classList.add("hidden"); // Cache le menu en ajoutant la classe "hidden"
-            }
-        });
-
-        // Fonction pour basculer la visibilité du menu déroulant
-        const toggleMenu = () => {
-            const dropdown = document.getElementById("dropdownMenu");
-            dropdown.classList.toggle("hidden"); // Ajoute ou supprime la classe "hidden"
-        };
-    </script>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
     <!-- Applique des couleurs et styles de base pour le mode clair et sombre -->

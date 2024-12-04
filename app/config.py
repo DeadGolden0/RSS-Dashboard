@@ -133,4 +133,13 @@ CATEGORIES_ICONS = {
     "SNCF immobilier": '<i class="fas fa-home"></i>',
 }
 
+# Mode de débogage
+# Si activé, des messages de débogage seront affichés dans la console.
+# True ou False
 DEBUG_MODE = True
+
+# Utilisation de TrueLink pour les URL Google News
+# Si cette option est activée, les URL des articles Google News seront décodées.
+# Cela peut être utile pour obtenir des liens directs vers les articles.
+# True or False
+USE_TRUELINK = True

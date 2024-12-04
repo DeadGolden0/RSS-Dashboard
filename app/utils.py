@@ -2,7 +2,7 @@ import requests
 import feedparser
 from newspaper import Article
 from .decode_url import decode_google_news_url
-from .config import RSS_FEEDS, THEMES_KEYWORDS, CATEGORIES_ICONS, DEBUG_MODE
+from .config import RSS_FEEDS, THEMES_KEYWORDS, CATEGORIES_ICONS, DEBUG_MODE, USE_TRUELINK
 
 # Utilisez les constantes importées
 rss_feeds = RSS_FEEDS
@@ -115,8 +115,10 @@ def load_articles():
             flux = feedparser.parse(rss_content)
             for entry in flux.entries:
                 # Extraire l'URL réelle
-                real_url = fetch_real_url(entry.link)
-                #real_url = entry.link
+                if USE_TRUELINK:
+                    real_url = fetch_real_url(entry.link)
+                else:
+                    real_url = entry.link
 
                 # Obtenir le résumé et l'image principale
                 summary, image = get_article_summary_and_image(real_url)
