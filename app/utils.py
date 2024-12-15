@@ -43,10 +43,9 @@ def classify_article(article, themes_keywords):
     :return: Liste des thèmes associés à l'article.
     """
     title = article['Titre'].lower()
-    summary = article['Résumé'].lower()
     return [
         theme for theme, keywords in themes_keywords.items()
-        if any(keyword in title or keyword in summary for keyword in keywords)
+        if any(keyword in title for keyword in keywords)
     ]
 
 # Fonction pour décoder l'URL réelle d'un article Google News
@@ -113,7 +112,7 @@ def load_articles():
         rss_content = fetch_rss(rss_url)
         if rss_content:
             flux = feedparser.parse(rss_content)
-            for entry in flux.entries:
+            for entry in flux.entries[:3]:
                 # Extraire l'URL réelle
                 if USE_TRUELINK:
                     real_url = fetch_real_url(entry.link)
