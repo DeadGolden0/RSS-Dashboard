@@ -49,6 +49,11 @@ RSS_FEEDS = [
 # Chaque clé est un thème, et les valeurs sont des listes de mots-clés.
 # Ces mots-clés sont utilisés pour classer les articles selon leur contenu.
 THEMES_KEYWORDS = {
+    "Recommendation": [ 
+        "communication", "réseaux sociaux", "media", "relations publiques",
+        "innovation", "technologie", "recherche et développement", "nouveau produit",
+        "données", "data", "big data", "analyse de données", "visualisation de données",
+    ],
     "Communication": [
         "communication", "réseaux sociaux", "media", "relations publiques", 
         "communiqué de presse", "interactions", "stratégie de communication", 
@@ -120,6 +125,7 @@ THEMES_KEYWORDS = {
 # Dictionnaire des icônes par thème
 # Chaque thème a une icône qui peut être utilisée dans l'interface utilisateur.
 CATEGORIES_ICONS = {
+    "Recommendation": '<i class="fas fa-robot"></i>',
     "Communication": '<i class="fa-solid fa-tty"></i>',
     "Innovation": '<i class="fa-regular fa-lightbulb"></i>',
     "Data": '<i class="fas fa-chart-bar"></i>',
