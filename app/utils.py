@@ -1,6 +1,9 @@
 import requests
 import feedparser
 from newspaper import Article
+from dateutil import parser
+from datetime import datetime
+from babel.dates import format_date
 from .decode_url import decode_google_news_url
 from .config import RSS_FEEDS, THEMES_KEYWORDS, CATEGORIES_ICONS, DEBUG_MODE, USE_TRUELINK
 
@@ -60,9 +63,9 @@ def fetch_real_url(url):
         real_url = decode_google_news_url(url, interval=2)
 
         if DEBUG_MODE:
-            print("=-=-=-=" * 20)
+            print("=-=-=-=-" * 5)
             print("[🔗] URL d'origine:", url)
-            print(f"[🌐] URL réelle: {real_url}")
+            print(f"[🌐] URL réelle: {real_url["decoded_url"]}")
 
         if real_url["status"] == False:
             return url
@@ -89,6 +92,7 @@ def get_article_summary_and_image(url):
         image = article.top_image if article.top_image else None
 
         if DEBUG_MODE:
+            print("=-=-=-=-" * 10)
             print(f"[📝] Résumé trouvé: {'✅' if summary != 'Résumé non disponible' else '❌'}")
             print(f"[🖼️] Image trouvée: {'✅' if image else '❌'}")
 
@@ -96,6 +100,36 @@ def get_article_summary_and_image(url):
     except Exception as e:
         print(f"Erreur lors de l'extraction de l'article pour {url}: {e}")
         return "Résumé non disponible", None
+
+def parse_date(date_str):
+    """ 
+    Convertit une chaîne de caractères en objet date.
+    
+    :param date_str: La chaîne de caractères représentant la date.
+    :return: Un objet date ou None si la conversion échoue.
+
+    exemple : Wed, 05 Jun 2024 07:00:00 GMT -> 2024/06/05 -- Format Anglais
+    """
+    if not date_str:
+        return None
+    try:
+        parsed_date = parser.parse(date_str)
+        return parsed_date.date()
+    except (ValueError, TypeError):
+        return None
+
+def format_date_french(date_obj):
+    """
+    Formate une date en français.
+    
+    :param date_obj: L'objet date à formater.
+    :return: La date formatée en français.
+
+    Exemple : 2024/06/05 -> 05 juin 2024 -- Format Francais
+    """
+    if not date_obj:
+        return None
+    return format_date(date_obj, format='long', locale='fr_FR')
 
 # Analyse et classification des articles
 def load_articles():
@@ -123,7 +157,9 @@ def load_articles():
                 summary, image = get_article_summary_and_image(real_url)
 
                 # Formater la date en français
-                formatted_date = entry.get("published", None)
+                date = entry.get("published", None)
+                parsed_date = parse_date(date) # = Format Anglais
+                formatted_date = format_date_french(parsed_date) # = Format Francais
 
                 # Créer un article
                 article = {
@@ -131,12 +167,17 @@ def load_articles():
                     "Lien": real_url,
                     "Résumé": summary,
                     "Image": image,
-                    "Date": formatted_date,
+                    "Date": parsed_date, # = Format Anglais
+                    "Date_fr": formatted_date, # = Format Francais
                 }
 
                 # Classer l'article selon les mots-clés
                 themes = classify_article(article, themes_keywords)
                 for theme in themes:
                     articles_by_theme[theme].append(article)
+
+    # Trier les articles par date (les plus récents en premier)
+    for theme in articles_by_theme:
+        articles_by_theme[theme].sort(key=lambda x: x["Date"] or datetime.min.date(), reverse=True)
 
     return articles_by_theme

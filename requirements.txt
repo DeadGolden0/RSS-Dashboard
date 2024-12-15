@@ -1,7 +1,9 @@
-Flask==2.3.3
+Flask
 newspaper4k
-selectolax==0.3.16
-typing_extensions==4.8.0
+selectolax
+typing_extensions
 lxml[html_clean]
-feedparser==6.0.10
-requests==2.31.0
+feedparser
+requests
+python-dateutil
+babel

@@ -4,52 +4,52 @@
 RSS_FEEDS = [
     "https://news.google.com/rss/search?q=j%27ai%20un%20pote%20dans%20la%20com&hl=fr&gl=FR&ceid=FR%3Afr", 
     "https://news.google.com/rss/search?q=https%3A%2F%2Fwww.lemondeinformatique.fr%2Fbig-data-139.html&hl=fr&gl=FR&ceid=FR%3Afr",
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.futura-sciences.com%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.sciencesetavenir.fr%2Fhigh-tech%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fdatascientest.com%2Fblog-data-ia-actualites&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.lemagit.fr%2Factualites%2FIntelligence-Artificielle-et-Data-Science&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.datasciencecentral.com%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Finsideainews.com%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fdataconomy.com%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.usinenouvelle.com%2Fmanagement%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fculture-rh.com%2Fcategory%2Fmanagement%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.lesechos.fr%2Fidees-debats%2Fleadership-management%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.lemonde.fr%2Fmanagement%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.lefigaro.fr%2Fdecideurs%2Fmanagement&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fspringwise.com%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/search?q=https%3A%2F%2Fwww.engadget.com%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fcleantechnica.com%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.zdnet.com%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.pcmag.com%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fsingularityhub.com%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.lemonde.fr%2Fsncf%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.groupe-sncf.com%2Ffr%2Fgroupe%2Fportrait-entreprise%2Fgroupe-societes%2Fsncf-sa%2Fsncf-immobilier&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.hp.com%2Ffr-fr%2Fpoly.html&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=j%27ai%20un%20pote%20dans%20la%20com&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Flareclame.fr%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.influencia.net%2F&hl=fr&gl=FR&ceid=FR%3Afrv"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.strategies.fr%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Filetaitunepub.fr%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.vice.com%2Ffr%2Ftag%2Ftech%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.lesnumeriques.com%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.numerama.com%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fhitek.fr%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.sncf-voyageurs.com%2Ffr%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.sncf-voyageurs.com%2Ffr%2Fvoyagez-avec-nous%2Fhoraires-et-itineraires%2Finformations-trafic%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fressources.data.sncf.com%2Fpages%2Faccueil%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.laviedurail.com%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.actu-marketing.fr%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.e-marketing.fr%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fcomarketing-news.fr%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=https%3A%2F%2Fsiecledigital.fr%2Fmarketing%2F&hl=fr&gl=FR&ceid=FR%3Afr"
-    #"https://news.google.com/rss/search?q=blog%20du%20moderateur&hl=fr&gl=FR&ceid=FR%3Afr"
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.futura-sciences.com%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.sciencesetavenir.fr%2Fhigh-tech%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fdatascientest.com%2Fblog-data-ia-actualites&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.lemagit.fr%2Factualites%2FIntelligence-Artificielle-et-Data-Science&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.datasciencecentral.com%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Finsideainews.com%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fdataconomy.com%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.usinenouvelle.com%2Fmanagement%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fculture-rh.com%2Fcategory%2Fmanagement%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.lesechos.fr%2Fidees-debats%2Fleadership-management%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.lemonde.fr%2Fmanagement%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.lefigaro.fr%2Fdecideurs%2Fmanagement&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fspringwise.com%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/search?q=https%3A%2F%2Fwww.engadget.com%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fcleantechnica.com%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.zdnet.com%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.pcmag.com%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fsingularityhub.com%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.lemonde.fr%2Fsncf%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.groupe-sncf.com%2Ffr%2Fgroupe%2Fportrait-entreprise%2Fgroupe-societes%2Fsncf-sa%2Fsncf-immobilier&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.hp.com%2Ffr-fr%2Fpoly.html&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=j%27ai%20un%20pote%20dans%20la%20com&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Flareclame.fr%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.influencia.net%2F&hl=fr&gl=FR&ceid=FR%3Afrv",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.strategies.fr%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Filetaitunepub.fr%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.vice.com%2Ffr%2Ftag%2Ftech%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.lesnumeriques.com%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.numerama.com%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fhitek.fr%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.sncf-voyageurs.com%2Ffr%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.sncf-voyageurs.com%2Ffr%2Fvoyagez-avec-nous%2Fhoraires-et-itineraires%2Finformations-trafic%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fressources.data.sncf.com%2Fpages%2Faccueil%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.laviedurail.com%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.actu-marketing.fr%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fwww.e-marketing.fr%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fcomarketing-news.fr%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=https%3A%2F%2Fsiecledigital.fr%2Fmarketing%2F&hl=fr&gl=FR&ceid=FR%3Afr",
+    #"https://news.google.com/rss/search?q=blog%20du%20moderateur&hl=fr&gl=FR&ceid=FR%3Afr",
 ]
 
 # Dictionnaire de mots-clés par thème
 # Chaque clé est un thème, et les valeurs sont des listes de mots-clés.
 # Ces mots-clés sont utilisés pour classer les articles selon leur contenu.
 THEMES_KEYWORDS = {
-    "Recommendation": [ 
+    "Recommandation": [ 
         "communication", "réseaux sociaux", "media", "relations publiques",
         "innovation", "technologie", "recherche et développement", "nouveau produit",
         "données", "data", "big data", "analyse de données", "visualisation de données",
@@ -125,7 +125,7 @@ THEMES_KEYWORDS = {
 # Dictionnaire des icônes par thème
 # Chaque thème a une icône qui peut être utilisée dans l'interface utilisateur.
 CATEGORIES_ICONS = {
-    "Recommendation": '<i class="fas fa-robot"></i>',
+    "Recommandation": '<i class="fas fa-robot"></i>',
     "Communication": '<i class="fa-solid fa-tty"></i>',
     "Innovation": '<i class="fa-regular fa-lightbulb"></i>',
     "Data": '<i class="fas fa-chart-bar"></i>',
