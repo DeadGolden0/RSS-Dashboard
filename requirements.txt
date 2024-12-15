@@ -2,6 +2,6 @@ Flask==2.3.3
 newspaper4k
 selectolax==0.3.16
 typing_extensions==4.8.0
-lxml==4.9.3
+lxml[html_clean]
 feedparser==6.0.10
 requests==2.31.0
